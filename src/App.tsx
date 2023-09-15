@@ -34,9 +34,33 @@
 
 // export default App
 // import Message from './message';
-import ListGroup from './components/ListGroup';
+// import ListGroup from './components/ListGroup';
+import Alert from './components/alert';
+import Button from './components/Button';
+import { useState } from "react";
 
 function App() {
-  return <div><ListGroup /></div>
+  // let items = [
+  //   'DJAKARTA',
+  //   'BOGOR',
+  //   'DEPOK',
+  //   'TANGGERANG',
+  //   'BEKASI',
+  // ];
+  // const handleSelectItem = (item: string) =>{
+  //   console.log(item);
+  // }
+  // return <div><ListGroup items={items} heading='cities' onSelectItem={handleSelectItem}/></div>
+  const [alertVisible, setAlertVisibility] = useState(false);
+  return (
+    <div>
+      <Button color='primary' onClick={() => {setAlertVisibility(true)}}> 
+        Say hii to alert!
+      </Button>
+      <div className='alert'>
+        {alertVisible && <Alert onClose={() => {setAlertVisibility(false)}}>Hii too</Alert>}
+      </div>
+    </div>
+  )
 }
 export default App
